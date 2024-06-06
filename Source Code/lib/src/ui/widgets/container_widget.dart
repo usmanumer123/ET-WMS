@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/utils/uidata/appImages.dart';
-import 'package:flutter_application_1/src/utils/uidata/color.dart';
+import 'package:ET_WMS/src/utils/uidata/appImages.dart';
+import 'package:ET_WMS/src/utils/uidata/color.dart';
 class ContainerWidgets extends StatelessWidget {
   final String title;
   final String text;

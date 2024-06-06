@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/utils/routes/app_pages.dart';
+import 'package:ET_WMS/src/utils/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/controllers/dashboard_controller.dart';
-import 'package:flutter_application_1/src/utils/routes/routes.dart';
+import 'package:ET_WMS/src/controllers/dashboard_controller.dart';
+import 'package:ET_WMS/src/utils/routes/routes.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:flutter_application_1/src/utils/uidata/color.dart';
+import 'package:ET_WMS/src/utils/uidata/color.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -192,94 +191,14 @@ class Dashboard extends StatelessWidget {
             'ASSET BY STATUS',
             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 19),
           ).marginOnly(left: 15, top: 15),
-          chart(_),
-          Container(
-            height: 100,
-            width: Get.width,
-            color: Color.fromARGB(25, 158, 158, 158),
-            child: Wrap(
-              children: [
-                Wrap(
-                  children: [
-                    Container(
-                      height: 15,
-                      width: 15,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(3),
-                        color: Colors.blue,
-                      ),
-                    ),
-                    Text('Dispose').marginOnly(left: 7),
-                  ],
-                ).marginOnly(left: 80, top: 17),
-                Wrap(
-                  children: [
-                    Container(
-                      height: 15,
-                      width: 15,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(3),
-                        color: Color.fromARGB(255, 223, 0, 0),
-                      ),
-                    ),
-                    Text('Lost').marginOnly(left: 7),
-                  ],
-                ).marginOnly(left: 80, top: 17),
-                Wrap(
-                  children: [
-                    Container(
-                      height: 15,
-                      width: 15,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(3),
-                        color: Color.fromARGB(255, 0, 192, 45),
-                      ),
-                    ),
-                    Text('Available').marginOnly(left: 7),
-                  ],
-                ).marginOnly(left: 80, top: 17),
-                Wrap(
-                  children: [
-                    Container(
-                      height: 15,
-                      width: 15,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(3),
-                        color: Color.fromARGB(255, 224, 160, 0),
-                      ),
-                    ),
-                    Text('Check Out').marginOnly(left: 7),
-                  ],
-                ).marginOnly(left: 80, top: 17),
-              ],
-            ),
-          )
+
+         
         ],
       ),
     );
   }
 
-  SfCircularChart chart(DashboardController _) {
-    return SfCircularChart(series: <CircularSeries<ChartData, String>>[
-      DoughnutSeries<ChartData, String>(
-          dataSource: _.data,
-          xValueMapper: (ChartData data, _) => data.x,
-          yValueMapper: (ChartData data, _) => data.y,
-          radius: '90%',
-          explode: true,
-          explodeGesture: ActivationMode.singleTap,
-          explodeOffset: '5%',
-          dataLabelSettings: const DataLabelSettings(
-            // color: Colors.amber,
-            textStyle:
-                TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            isVisible: true,
-            // labelIntersectAction: LabelIntersectAction.shift,
-            // Customize other data label settings here
-          ),
-          name: 'Gold')
-    ]);
-  }
+ 
 
   PreferredSize appbar(DashboardController _) {
     return PreferredSize(
@@ -571,11 +490,4 @@ class Dashboard extends StatelessWidget {
           ).marginSymmetric(horizontal: 40),
         ));
   }
-}
-
-class ChartData {
-  ChartData(this.x, this.y);
-
-  final String x;
-  final double y;
 }

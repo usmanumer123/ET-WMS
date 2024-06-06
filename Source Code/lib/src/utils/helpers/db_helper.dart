@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:flutter_application_1/src/models/task_model.dart';
-import 'package:flutter_application_1/src/utils/uidata/staticData.dart';
+import 'package:ET_WMS/src/models/task_model.dart';
+import 'package:ET_WMS/src/utils/uidata/staticData.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';

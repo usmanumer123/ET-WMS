@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/utils/uidata/color.dart';
+import 'package:ET_WMS/src/utils/uidata/color.dart';
 
 class ContWidgets extends StatelessWidget {
   final String text;

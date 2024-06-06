@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/controllers/login_controller.dart';
-import 'package:flutter_application_1/src/ui/widgets/commonBtn.dart';
-import 'package:flutter_application_1/src/utils/routes/routes.dart';
-import 'package:flutter_application_1/src/ui/widgets/container_widget.dart';
-import 'package:flutter_application_1/src/ui/widgets/textformfild_widgets.dart';
-import 'package:flutter_application_1/src/utils/uidata/color.dart';
+import 'package:ET_WMS/src/controllers/login_controller.dart';
+import 'package:ET_WMS/src/ui/widgets/commonBtn.dart';
+import 'package:ET_WMS/src/utils/routes/routes.dart';
+import 'package:ET_WMS/src/ui/widgets/container_widget.dart';
+import 'package:ET_WMS/src/ui/widgets/textformfild_widgets.dart';
+import 'package:ET_WMS/src/utils/uidata/color.dart';
 import 'package:get/get.dart';
 
 class LogIn extends StatelessWidget {

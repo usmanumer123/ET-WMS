@@ -1,4 +1,4 @@
-import 'package:flutter_application_1/src/controllers/login_controller.dart';
+import 'package:ET_WMS/src/controllers/login_controller.dart';
 import 'package:get/get.dart';
 
 class LoginScreenBindings extends Bindings{
