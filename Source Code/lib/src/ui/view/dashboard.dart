@@ -29,171 +29,389 @@ class Dashboard extends StatelessWidget {
   SingleChildScrollView body(DashboardController _) {
     return SingleChildScrollView(
       physics: AlwaysScrollableScrollPhysics(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          InkWell(
-            onTap: () {
-              Get.toNamed(Routes.viewAssets);
-            },
-            child: Center(
-              child: Container(
-                width: Get.width - 30,
-                height: 90,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: const [
-                        UIDataColors.commonColor,
-                        Color.fromARGB(193, 0, 0, 0)
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      stops: const [0.2, 2.9],
-                      tileMode: TileMode.clamp,
-                    ),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            InkWell(
+              onTap: (){},
+              child: Center(
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 10),
+                  width: Get.width - 30,
+                  height: 130,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: const [
+                          UIDataColors.blueColor,
+                          Color.fromARGB(255, 136, 50, 100)
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        stops: const [0.2, 2.9],
+                        tileMode: TileMode.clamp,
+                      ),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
                       children: [
-                        Text(
-                          'Total Assets',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16),
+                        Row(
+                          children: [
+                            Icon(Icons.data_usage,color: Colors.white,),
+                            Spacer(),
+                            Icon(Icons.help_outline,color: Colors.white)
+                          ],
                         ),
-                        Obx(() => Text(
-                              '${_.assets.length}',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 28),
-                            ))
-                      ],
-                    ),
-                    SvgPicture.asset(
-                      'assets/images/dashboard/purple-bg-images.svg',
-                      height: 75,
-                    )
-                  ],
-                ).marginOnly(left: 10),
-              ).marginOnly(bottom: 10, top: 15),
-            ),
-          ),
-          InkWell(
-            onTap: () async {
-              // _.db.deleteTable('tasks');
-            },
-            child: Center(
-              child: Container(
-                width: Get.width - 26,
-                height: 90,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: const [
-                        UIDataColors.commonColor,
-                        Color.fromARGB(193, 0, 0, 0)
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      stops: const [0.2, 2.9],
-                      tileMode: TileMode.clamp,
-                    ),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                     Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: Get.width/1.6,
-                          child: Text(
-                            'No of Assets(Last 12 months)',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16),
-                          ),
-                        ),
-                        Text(
-                          '5',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 28),
+                        SizedBox(height: 10,),
+                        Align(alignment: Alignment.centerLeft,
+                            child: Text('Inventory Summary',style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold, color: Colors.white),)),
+                        SizedBox(height: 10,),
+                        Row(
+                          children: [
+                            Container(
+                              child: Column(
+                                children: [
+                                  Text("Items",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                                  Text('2',style: TextStyle(color: Colors.white)),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 10,),
+                            Container(
+                              child: Column(
+                                children: [
+                                  Text("Folder",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                                  Text('0',style: TextStyle(color: Colors.white)),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 10,),
+                            Container(
+                              child: Column(
+                                children: [
+                                  Text("Total Qty",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                                  Text('5 units',style: TextStyle(color: Colors.white)),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 10,),
+                            Container(
+                              child: Column(
+                                children: [
+                                  Text("Total Value",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                                  Text('\$ 5,000',style: TextStyle(color: Colors.white)),
+                                ],
+                              ),
+                            ),
+                          ],
                         )
                       ],
                     ),
-                    SvgPicture.asset(
-                      'assets/images/dashboard/purple-bg-images.svg',
-                      height: 75,
-                    )
-                  ],
-                ).marginOnly(left: 10),
-              ).marginOnly(bottom: 10),
+                  ),
+                ),
+              ),
             ),
-          ),
-          Center(
-            child: Container(
-              width: Get.width - 30,
-              height: 90,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: const [
-                      UIDataColors.commonColor,
-                      Color.fromARGB(193, 0, 0, 0)
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    stops: const [0.2, 2.9],
-                    tileMode: TileMode.clamp,
-                  ),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'NAV(Net Assets Value)',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16),
-                      ),
-                      Text(
-                        "\$ 5,000",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 28),
-                      ),
-                    ],
-                  ),
-                  SvgPicture.asset(
-                    'assets/images/dashboard/purple-bg-images.svg',
-                    height: 75,
-                  )
-                ],
-              ).marginOnly(left: 10),
-            ).marginOnly(bottom: 10),
-          ),
-          Text(
-            'ASSET BY STATUS',
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 19),
-          ).marginOnly(left: 15, top: 15),
+            SizedBox(height: 20,),
 
-         
-        ],
+            // InkWell(
+            //   onTap: () {
+            //     Get.toNamed(Routes.viewAssets);
+            //   },
+            //   child: Center(
+            //     child: Container(
+            //       width: Get.width - 30,
+            //       height: 90,
+            //       decoration: BoxDecoration(
+            //           gradient: LinearGradient(
+            //             colors: const [
+            //               UIDataColors.commonColor,
+            //               Color.fromARGB(193, 0, 0, 0)
+            //             ],
+            //             begin: Alignment.topLeft,
+            //             end: Alignment.bottomRight,
+            //             stops: const [0.2, 2.9],
+            //             tileMode: TileMode.clamp,
+            //           ),
+            //           borderRadius: BorderRadius.circular(10)),
+            //       child: Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //         children: [
+            //           Column(
+            //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //             crossAxisAlignment: CrossAxisAlignment.start,
+            //             children: [
+            //               Text(
+            //                 'Total Assets',
+            //                 style: TextStyle(
+            //                     color: Colors.white,
+            //                     fontWeight: FontWeight.w600,
+            //                     fontSize: 16),
+            //               ),
+            //               Obx(() => Text(
+            //                     '${_.assets.length}',
+            //                     style: TextStyle(
+            //                         color: Colors.white,
+            //                         fontWeight: FontWeight.w600,
+            //                         fontSize: 28),
+            //                   ))
+            //             ],
+            //           ),
+            //           SvgPicture.asset(
+            //             'assets/images/dashboard/purple-bg-images.svg',
+            //             height: 75,
+            //           )
+            //         ],
+            //       ).marginOnly(left: 10),
+            //     ).marginOnly(bottom: 10, top: 15),
+            //   ),
+            // ),
+            // InkWell(
+            //   onTap: () async {
+            //     // _.db.deleteTable('tasks');
+            //   },
+            //   child: Center(
+            //     child: Container(
+            //       width: Get.width - 26,
+            //       height: 90,
+            //       decoration: BoxDecoration(
+            //           gradient: LinearGradient(
+            //             colors: const [
+            //               UIDataColors.commonColor,
+            //               Color.fromARGB(193, 0, 0, 0)
+            //             ],
+            //             begin: Alignment.topLeft,
+            //             end: Alignment.bottomRight,
+            //             stops: const [0.2, 2.9],
+            //             tileMode: TileMode.clamp,
+            //           ),
+            //           borderRadius: BorderRadius.circular(10)),
+            //       child: Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //         children: [
+            //            Column(
+            //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //             crossAxisAlignment: CrossAxisAlignment.start,
+            //             children: [
+            //               Container(
+            //                 width: Get.width/1.6,
+            //                 child: Text(
+            //                   'No of Assets(Last 12 months)',
+            //                   overflow: TextOverflow.ellipsis,
+            //                   style: TextStyle(
+            //                       color: Colors.white,
+            //                       fontWeight: FontWeight.w600,
+            //                       fontSize: 16),
+            //                 ),
+            //               ),
+            //               Text(
+            //                 '5',
+            //                 style: TextStyle(
+            //                     color: Colors.white,
+            //                     fontWeight: FontWeight.w600,
+            //                     fontSize: 28),
+            //               )
+            //             ],
+            //           ),
+            //           SvgPicture.asset(
+            //             'assets/images/dashboard/purple-bg-images.svg',
+            //             height: 75,
+            //           )
+            //         ],
+            //       ).marginOnly(left: 10),
+            //     ).marginOnly(bottom: 10),
+            //   ),
+            // ),
+            // Center(
+            //   child: Container(
+            //     width: Get.width - 30,
+            //     height: 90,
+            //     decoration: BoxDecoration(
+            //         gradient: LinearGradient(
+            //           colors: const [
+            //             UIDataColors.commonColor,
+            //             Color.fromARGB(193, 0, 0, 0)
+            //           ],
+            //           begin: Alignment.topLeft,
+            //           end: Alignment.bottomRight,
+            //           stops: const [0.2, 2.9],
+            //           tileMode: TileMode.clamp,
+            //         ),
+            //         borderRadius: BorderRadius.circular(10)),
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //       children: [
+            //         const Column(
+            //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //           crossAxisAlignment: CrossAxisAlignment.start,
+            //           children: [
+            //             Text(
+            //               'NAV(Net Assets Value)',
+            //               style: TextStyle(
+            //                   color: Colors.white,
+            //                   fontWeight: FontWeight.w600,
+            //                   fontSize: 16),
+            //             ),
+            //             Text(
+            //               "\$ 5,000",
+            //               style: TextStyle(
+            //                   color: Colors.white,
+            //                   fontWeight: FontWeight.w600,
+            //                   fontSize: 28),
+            //             ),
+            //           ],
+            //         ),
+            //         SvgPicture.asset(
+            //           'assets/images/dashboard/purple-bg-images.svg',
+            //           height: 75,
+            //         )
+            //       ],
+            //     ).marginOnly(left: 10),
+            //   ).marginOnly(bottom: 10),
+            // ),
+
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: Get.width - 230,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: const [
+                            UIDataColors.blueColor,
+                            Color.fromARGB(255, 136, 50, 100)
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          stops: const [0.2, 2.9],
+                          tileMode: TileMode.clamp,
+                        ),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(Icons.trending_down,color: Colors.white,),
+                          SizedBox(height: 5,),
+                          Text('Low Stock',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                          SizedBox(height: 5,),
+                          Text('View all stack items that are low inventory',style: TextStyle(color: Colors.white),),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 15,),
+                  Container(
+                    width: Get.width - 230,
+                    height: 150,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: const [
+                            UIDataColors.blueColor,
+                            Color.fromARGB(255, 136, 50, 100)
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          stops: const [0.2, 2.9],
+                          tileMode: TileMode.clamp,
+                        ),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(Icons.repeat,color: Colors.white,),
+                          SizedBox(height: 5,),
+                          Text('Transaction',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                          SizedBox(height: 5,),
+                          Text('See all quantity updotes, movements and clones',style: TextStyle(color: Colors.white),),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: Get.width - 230,
+                  height: 150,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: const [
+                          UIDataColors.blueColor,
+                          Color.fromARGB(255, 136, 50, 100)
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        stops: const [0.2, 2.9],
+                        tileMode: TileMode.clamp,
+                      ),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.bar_chart,color: Colors.white,),
+                        SizedBox(height: 5,),
+                        Text('Item Flow',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                        SizedBox(height: 5,),
+                        Text('View all inflows and outflow for an item',style: TextStyle(color: Colors.white),),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(width: 15,),
+                Container(
+                  width: Get.width - 230,
+                  height: 150,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: const [
+                          UIDataColors.blueColor,
+                          Color.fromARGB(255, 136, 50, 100)
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        stops: const [0.2, 2.9],
+                        tileMode: TileMode.clamp,
+                      ),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.create_new_folder_sharp,color: Colors.white,),
+                        SizedBox(height: 5,),
+                        Text('Move Summary',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                        SizedBox(height: 5,),
+                        Text('Track inventory that has moved location',style: TextStyle(color: Colors.white),),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            Text(
+              'ASSET BY STATUS',
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 19),
+            ).marginOnly(left: 15, top: 15),
+
+
+          ],
+        ),
       ),
     );
   }
@@ -237,7 +455,7 @@ class Dashboard extends StatelessWidget {
                 height: 35,
                 width: 35,
                 decoration: BoxDecoration(
-                    color: UIDataColors.commonColor,
+                    color: UIDataColors.blueColor,
                     borderRadius: BorderRadius.circular(50)),
                 child: Center(
                     child: Icon(
