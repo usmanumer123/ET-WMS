@@ -16,7 +16,8 @@ class CommonBtn extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
-            color: UIDataColors.commonColor,
+            gradient: LinearGradient(colors: [UIDataColors.blueColor,
+              Color.fromARGB(255, 136, 50, 100)]),
           ),
           child: Text(
             title,

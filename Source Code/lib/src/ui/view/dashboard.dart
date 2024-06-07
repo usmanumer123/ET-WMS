@@ -473,239 +473,330 @@ class Dashboard extends StatelessWidget {
 
   Drawer drawer(DashboardController _) {
     return Drawer(
-        backgroundColor: UIDataColors.commonColor,
+        backgroundColor: Color(0xFFAB53AD),
+
         width: Get.width / 1.5,
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: InkWell(
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [UIDataColors.blueColor,
+                Color.fromARGB(255, 136, 50, 100)]),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      Get.offAndToNamed(Routes.profile);
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(141, 224, 224, 224),
+                          borderRadius: BorderRadius.circular(40)),
+                      child: Center(
+                          child: Icon(
+                        Icons.person,
+                        size: 40,
+                        color: Color.fromARGB(195, 246, 246, 246),
+                      )),
+                    ).marginOnly(top: 50),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Text(
+                    'Subhan',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+
+                Divider(
+                  color: Color.fromARGB(98, 255, 255, 255),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                InkWell(
                   onTap: () {
-                    Get.offAndToNamed(Routes.profile);
+                    Get.offAndToNamed(Routes.scan);
                   },
-                  child: Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(141, 224, 224, 224),
-                        borderRadius: BorderRadius.circular(40)),
-                    child: Center(
-                        child: Icon(
-                      Icons.person,
-                      size: 40,
-                      color: Color.fromARGB(195, 246, 246, 246),
-                    )),
-                  ).marginOnly(top: 50),
+                  child: Text(
+                    'Item Details',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Center(
-                child: Text(
-                  'Subhan',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                SizedBox(
+                  height: 10,
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Divider(
-                color: Color.fromARGB(98, 255, 255, 255),
-              ),
-              InkWell(
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () {
-                  _.assetsCheck.toggle();
-                },
-                child: Text(
-                  'Assets',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ).marginOnly(top: 20),
-              ),
-              Obx(
-                () => _.assetsCheck.value
-                    ? Column(
-                        children: [
-                          SizedBox(
-                            height: 20,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Get.offAndToNamed(Routes.addAsset);
-                            },
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.add,
-                                  color: const Color.fromARGB(170, 255, 255, 255),
-                                ),
-                                Text(
-                                  'Add Assets',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 16),
-                                ).marginOnly(left: 10)
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Get.offAndToNamed(Routes.viewAssets);
-                            },
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.remove_red_eye_outlined,
-                                  size: 18,
-                                  color: const Color.fromARGB(170, 255, 255, 255),
-                                ),
-                                Text(
-                                  'View Assets',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 16),
-                                ).marginOnly(left: 10)
-                              ],
-                            ).marginOnly(left: 3),
-                          ),
-                        ],
-                      )
-                    : SizedBox(),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Divider(
-                color: Color.fromARGB(98, 255, 255, 255),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                onTap: () {
-                  Get.offAndToNamed(Routes.scan);
-                },
-                child: Text(
-                  'Scan Screen',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                Divider(
+                  color: Color.fromARGB(98, 255, 255, 255),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Divider(
-                color: Color.fromARGB(98, 255, 255, 255),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                onTap: () {
-                  Get.offAndToNamed(Routes.bluetooth);
-                },
-                child: Text(
-                  'My Devices',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                SizedBox(
+                  height: 10,
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Divider(
-                color: Color.fromARGB(98, 255, 255, 255),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                onTap: () {
-                  Get.offAndToNamed(Routes.scanHistory);
-                },
-                child: Text(
-                  'Scan History',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                InkWell(
+                  onTap: () {
+                    Get.offAndToNamed(Routes.bluetooth);
+                  },
+                  child: Text(
+                    'Stock In',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Divider(
-                color: Color.fromARGB(98, 255, 255, 255),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                onTap: () {
-                  Get.offAndToNamed(Routes.import);
-                },
-                child: Text(
-                  'Audit',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                SizedBox(
+                  height: 10,
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Divider(
-                color: Color.fromARGB(98, 255, 255, 255),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                onTap: () {
-                  Get.toNamed(Routes.readWriteRfid);
-                },
-                child: Text(
-                  'Write RFID',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                Divider(
+                  color: Color.fromARGB(98, 255, 255, 255),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Divider(
-                color: Color.fromARGB(98, 255, 255, 255),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                onTap: () {
-                  Get.defaultDialog(
-                    title: 'Log Out',
-                    content: Text('Are you sure u want to log out?'),
-                    actions: [
-                      TextButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        child: Text('Cancel'),
+                SizedBox(
+                  height: 10,
+                ),
+                InkWell(
+                  onTap: () {
+                    Get.offAndToNamed(Routes.scanHistory);
+                  },
+                  child: Text(
+                    'Stock Out',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Divider(
+                  color: Color.fromARGB(98, 255, 255, 255),
+                ),
+                InkWell(
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () {
+                    _.assetsCheck.toggle();
+                  },
+                  child: Text(
+                    'WH Transport',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ).marginOnly(top: 20),
+                ),
+                Obx(
+                      () => _.assetsCheck.value
+                      ? Column(
+                    children: [
+                      SizedBox(
+                        height: 10,
                       ),
-                      TextButton(
-                        onPressed: () async {
-                          GetStorage box = GetStorage();
-                          await box.remove('auth');
-                          Get.offAllNamed(Routes.login);
+                      InkWell(
+                        onTap: () {
+                          Get.offAndToNamed(Routes.addAsset);
                         },
-                        child: Text('Log out'),
+                        child: Row(
+                          children: [
+                            // Icon(
+                            //   Icons.add,
+                            //   color: const Color.fromARGB(170, 255, 255, 255),
+                            // ),
+                            Text(
+                              'Intro WH Transport',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 16),
+                            ).marginOnly(left: 10)
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Get.offAndToNamed(Routes.viewAssets);
+                        },
+                        child: Row(
+                          children: [
+                            // Icon(
+                            //   Icons.remove_red_eye_outlined,
+                            //   size: 18,
+                            //   color: const Color.fromARGB(170, 255, 255, 255),
+                            // ),
+                            Text(
+                              'Inter WH Transport',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 16),
+                            ).marginOnly(left: 10)
+                          ],
+                        ).marginOnly(left: 3),
                       ),
                     ],
-                  );
-                },
-                child: Text(
-                  'Logout',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  )
+                      : SizedBox(),
                 ),
-              ),
-              
-            ],
-          ).marginSymmetric(horizontal: 40),
+                SizedBox(
+                  height: 10,
+                ),
+                Divider(
+                  color: Color.fromARGB(98, 255, 255, 255),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                InkWell(
+                  onTap: () {
+                    Get.offAndToNamed(Routes.import);
+                  },
+                  child: Text(
+                    'Stock Insurance',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Divider(
+                  color: Color.fromARGB(98, 255, 255, 255),
+                ),
+                InkWell(
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () {
+                    _.assetsCheck.toggle();
+                  },
+                  child: Text(
+                    'Connecting Module',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ).marginOnly(top: 20),
+                ),
+                Obx(
+                      () => _.assetsCheck.value
+                      ? Column(
+                    children: [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Get.offAndToNamed(Routes.addAsset);
+                        },
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.online_prediction,
+                              color: const Color.fromARGB(170, 255, 255, 255),
+                            ),
+                            Text(
+                              'Online',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 16),
+                            ).marginOnly(left: 10)
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Get.offAndToNamed(Routes.viewAssets);
+                        },
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.airplanemode_off,
+                              size: 18,
+                              color: const Color.fromARGB(170, 255, 255, 255),
+                            ),
+                            Text(
+                              'Offline',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 16),
+                            ).marginOnly(left: 10)
+                          ],
+                        ).marginOnly(left: 3),
+                      ),
+                    ],
+                  )
+                      : SizedBox(),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Divider(
+                  color: Color.fromARGB(98, 255, 255, 255),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(Routes.readWriteRfid);
+                  },
+                  child: Text(
+                    'Barcode/Qrcode',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Divider(
+                  color: Color.fromARGB(98, 255, 255, 255),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(Routes.readWriteRfid);
+                  },
+                  child: Text(
+                    'RFID Module',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+                Divider(
+                  color: Color.fromARGB(98, 255, 255, 255),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                InkWell(
+                  onTap: () {
+                    Get.defaultDialog(
+                      title: 'Log Out',
+                      content: Text('Are you sure u want to log out?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          child: Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () async {
+                            GetStorage box = GetStorage();
+                            await box.remove('auth');
+                            Get.offAllNamed(Routes.login);
+                          },
+                          child: Text('Log out'),
+                        ),
+                      ],
+                    );
+                  },
+                  child: Text(
+                    'Logout',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+
+              ],
+            ).marginSymmetric(horizontal: 40),
+          ),
         ));
   }
 }
