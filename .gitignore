@@ -86,3 +86,5 @@ Pods/
 *.g.dart
 *.g2.dart
 *.generated.dart
+Database/WMS.mdf
+Database/WMS_log.ldf
