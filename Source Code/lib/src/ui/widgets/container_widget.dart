@@ -18,7 +18,10 @@ class ContainerWidgets extends StatelessWidget {
     return  Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height*0.4,
-      color: UIDataColors.commonColor,
+      decoration: BoxDecoration(
+        gradient:LinearGradient(colors: [UIDataColors.blueColor,
+          Color.fromARGB(255, 136, 50, 100)])
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
